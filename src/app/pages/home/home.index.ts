@@ -1,5 +1,6 @@
 import mainViewClass from "../../default/mainView.class";
-import { getHeadingText } from "./home.service";
+import { getHeadingText, showAlert } from "./home.service";
+import './home.style.css'
 
 export default class extends mainViewClass {
   constructor(params: any) {
@@ -7,11 +8,13 @@ export default class extends mainViewClass {
     this.setTitle("Home");
   }
 
-  async getHtml(): Promise<string> {
+  async getHtml() {
+    (window as any).showAlert = showAlert;
     const headingText = await getHeadingText();
     return `
       <h1>Home page</h1>
-      <p>${headingText}</p>
+      <p class="heading-text">${headingText}</p>
+      <button onclick="showAlert()">Show alert</button>
     `;
   }
 }
