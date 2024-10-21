@@ -1,28 +1,20 @@
 import {  DeleteConceptById, GetCompositionListListener,  NORMAL } from "mftsccs-browser";
 import { StatefulWidget } from "../../default/StatefulWidget";
-
+import { getLocalUserId } from "../user/login.service";
+import  './list.style.css';
 export class list extends StatefulWidget{
-    counter: number = 0;
     phonebooks: any = [];
     inpage: number= 10;
     page: number = 1;
-    id: number = 100128392;
     linker: string = "console_folder_s";
 
 
     widgetDidMount(): void {
-
-        GetCompositionListListener("the_phonebook", 10267, 10, 1, NORMAL).subscribe((output: any)=>{
-            console.log("this is the output", output);
+        let userId: number = getLocalUserId();
+        GetCompositionListListener("the_phonebook", userId, this.inpage, this.page, NORMAL).subscribe((output: any)=>{
             this.phonebooks = output;
             this.render();
         })
-        this.mountChildWidget();
-    }
-
-
-    updateWidget(){
-
     }
 
 
@@ -34,6 +26,10 @@ export class list extends StatefulWidget{
       if(this.phonebooks.length > 0){
         for(let i= 0; i< this.phonebooks.length; i++){
           let row = document.createElement("tr");
+          let col1 = document.createElement("td");
+          let col2 = document.createElement("td");
+          let col3 = document.createElement("td");
+          let col4 = document.createElement("td");
           let name = document.createElement("span");
           let nameValue = this.phonebooks[i].the_phonebook.name
           let phoneValue = this.phonebooks[i].the_phonebook.phone
@@ -66,14 +62,18 @@ export class list extends StatefulWidget{
               "name": nameValue,
               "phone": phoneValue
             }
-            console.log("this is the update click", that.data, that.subscribers);
             
             that.notify();
           }
-          row.appendChild(name);
-          row.appendChild(phone);
-          row.appendChild(edit);
-          row.appendChild(del);
+          col1.append(name);
+          col2.append(phone);
+          col3.append(edit);
+          col4.append(del);
+
+          row.appendChild(col1);
+          row.appendChild(col2);
+          row.appendChild(col3);
+          row.appendChild(col4);
           tableElement.append(row);
         }
 
@@ -81,11 +81,6 @@ export class list extends StatefulWidget{
       }
 
       }
-
-
-    mountChildWidget(){
-
-    }
 
 
 
@@ -99,6 +94,8 @@ export class list extends StatefulWidget{
           <tr>
               <th>name</th>
               <th>phone</th>
+              <th>Edit</th>
+              <th>Delete</th>
           </tr>
         </thead>
         <tbody id= mainbody>

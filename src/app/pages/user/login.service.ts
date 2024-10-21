@@ -33,3 +33,14 @@ export async function saveTolocalStorage(signinResponse: any) {
       }
     });
   }
+
+
+  export  function getLocalUserId() {
+      let dataFromLocalStorage: string = localStorage?.getItem("profile") || "";
+      if (dataFromLocalStorage) {
+        const profileData: IUser = JSON.parse(dataFromLocalStorage);
+        // return profileData;
+        return Number(profileData.userId);
+      } 
+      return 999;
+  }

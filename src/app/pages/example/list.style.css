@@ -1,0 +1,25 @@
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+th{
+    height: 70px;
+}
+
+th, td{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+td{
+    text-align: center;
+}
+
+.btn{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    background-color: rgb(137, 137, 233);
+}
