@@ -2,6 +2,10 @@ import routes from "./routes";
 
 const app = <HTMLElement>document.getElementById("app");
 
+/**
+ * Check authentication for route
+ * @returns 
+ */
 const checkAuthentication = () => {
   let dataFromLocalStorage: string = localStorage?.getItem("profile") || "";
   if (dataFromLocalStorage) {
@@ -12,6 +16,11 @@ const checkAuthentication = () => {
   }
 };
 
+/**
+ * 
+ * @param path 
+ * @returns 
+ */
 const pathToRegex = (path: any) =>
   new RegExp("^" + path.replace(/:\w+/g, "(.+)") + "$");
 
@@ -23,6 +32,9 @@ const getParams = (match: any) => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]]));
 };
 
+/**
+ * Check routing, history and load html in app
+ */
 export async function checkRouting() {
   const potentialMatches = routes.map((route: any) => {
     return {
@@ -69,22 +81,36 @@ export async function checkRouting() {
   }
 }
 
+/**
+ * Render route for history
+ * @param route 
+ */
 export const renderContent = async (route: any) => {
   history.pushState(null, "", route);
   checkRouting();
 };
 
+/**
+ * Navigate to the route
+ * @param route 
+ */
 export const updateContent = async (route: any) => {
   window.history.pushState({ route }, "", route);
   checkRouting();
 };
 
+/**
+ * Render routes in bootup
+ */
 const renderInitialPage = () => {
   const route = window.location.pathname;
   renderContent(route);
 };
 
-// <router-link> </router-link>
+/**
+ * This is a link for route visit as in SPA
+ * Use <router-link> </router-link>
+ */
 const initRouterLinks = () => {
   customElements.define(
     "router-link",
@@ -120,6 +146,9 @@ const initRouterLinks = () => {
   );
 };
 
+/**
+ * Bootup on initial load
+ */
 export const bootup = () => {
   renderInitialPage();
   initRouterLinks();
