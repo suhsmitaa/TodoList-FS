@@ -103,7 +103,6 @@ export class StatefulWidget extends BaseWidget{
      * This is the function that needs to be called.
      */
     mountChildWidgets(){
-
     }
   
     /**
@@ -156,7 +155,7 @@ export class StatefulWidget extends BaseWidget{
      * This function will be called after the component mounts.
      */
     widgetDidMount(){
-  
+      this.render();
     }
 
     /**
