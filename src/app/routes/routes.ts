@@ -1,6 +1,7 @@
 import { create } from "../pages/example/create.example.ts";
 import homeIndex from "../pages/home/home.index.ts";
-import { login } from "../pages/login/login.example.ts";
+import { login } from "../pages/user/login.example.ts";
+import { register } from "../pages/user/register.example.ts";
 
 type RouteParams = {
   /**
@@ -31,6 +32,11 @@ const routes: RouteParams[] = [
     path: "/login",
     linkLabel: "Login",
     content: login,
+  },
+  {
+    path: "/signup",
+    linkLabel: "Signup",
+    content: register,
   },
   {
     path: "/example",

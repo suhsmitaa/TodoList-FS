@@ -3,15 +3,6 @@ import { StatefulWidget } from "../../default/StatefulWidget";
 
 export class create extends StatefulWidget{
 
-    /**
-     * Since there is no other data to be fetched then we just render after the component has been mounted.
-     * If there was certain data you want to populate then you would put it here.
-     */
-    widgetDidMount(): void {
-
-        this.render();
-    }
-
 
     /**
      * These are the events that user adds. These could be any thing like populating the data to creating the data
@@ -61,7 +52,7 @@ export class create extends StatefulWidget{
      * This is the main html component of our creating widget.
      * @returns returns a form that takes in name and number for the phone book.
      */
-    async getHtml(): Promise<string> {
+     getHtml(): string {
         let html = "";
         html = `<div>
         <form>

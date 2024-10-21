@@ -32,7 +32,7 @@ export class StatefulWidget extends BaseWidget{
      * 
      * @returns the html string that needs to be mounted to the DOM.
      */
-    async getHtml(): Promise<string> {    
+     getHtml(): string {    
       return '';
     }
 
@@ -85,9 +85,9 @@ export class StatefulWidget extends BaseWidget{
    * This is the main function that adds the html of the component to the element.
    * The element is the mounted widget
    */
-  async render(){
+   render(){
       if (this.element) {
-          this.element.innerHTML = await this.getHtml();
+          this.element.innerHTML =  this.getHtml();
         }
       // addEvents is called after the element has been mounted.
       this.addEvents();
