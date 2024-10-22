@@ -39,27 +39,28 @@ export class register extends StatefulWidget{
      */
         getHtml(): string {
             let html = "";
-            html = `<div class="container">
-            <form>
-                <div>
-                <div class="formbody">
-                    <label>Email: </label>
-                    <input type = text id="email" placeholder="email">
+            html = `
+                <div class="container">
+                    <form>
+                        <div>
+                            <div class="formbody">
+                                <label>Email: </label>
+                                <input type=text id="email" placeholder="email">
+                            </div>
+                            <div class="formbody">
+                                <label>Password: </label>
+                                <input type=password id="password" placeholder="password">
+                            </div>
+                            <div class="formbody">
+                                <label>Repeat Password: </label>
+                                <input type=password id="verify-password" placeholder="password">
+                            </div>
+                            <button class="btn btn-primary" id="submit">Submit</button>
+                            <div style="color: red" id="error"></div>
+                        </div>
+                    </form>
                 </div>
-                <div class="formbody">
-                    <label>Password: </label>
-                    <input type = password id="password" placeholder="password">
-                </div>
-                <div class="formbody">
-                    <label>Repeat Password: </label>
-                    <input type = password id="verify-password" placeholder="password">
-                </div>
-                    <button  class ="btn btn-primary" id="submit">Submit</button>
-                    <div style="color: red" id= "error" ></div>
-                </div>
-            </form>
-    
-            </div>`
+            `
             return html;
         }
 }
