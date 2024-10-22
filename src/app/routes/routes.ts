@@ -2,6 +2,7 @@ import { create } from "../pages/example/create.example.ts";
 import { list } from "../pages/example/list.example.ts";
 import { phonebook } from "../pages/example/wrapper.example.ts";
 import homeIndex from "../pages/home/home.index.ts";
+import noPageFoundIndex from "../pages/noPageFound/noPageFound.index.ts";
 import { login } from "../pages/user/login.example.ts";
 import { logout } from "../pages/user/logout.example.ts";
 import { register } from "../pages/user/register.example.ts";
@@ -63,6 +64,11 @@ const routes: RouteParams[] = [
     linkLabel: "Example",
     content: list,
     isAuthenticated: true
+  },
+  {
+    path: "/404",
+    linkLabel: "404",
+    content: noPageFoundIndex,
   },
 ];
 

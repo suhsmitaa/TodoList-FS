@@ -26,6 +26,7 @@ export default class extends mainViewClass {
         <main class="main">
           <h1>Freeschema</h1>
           <p class="heading-text">${headingText}</p>
+          <p class="welcome-text">Welcome to freeSCHEMA, a powerful platform designed to simplify data management and software development, reducing development time by 50-75%. Whether you are a front-end developer or a full-stack developer.</p>
           <!-- <button onclick="showAlert()">Show alert</button> -->
           <div class="btn-group">
             <router-link href="/register">Get Started</router-link>
