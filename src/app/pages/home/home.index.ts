@@ -19,7 +19,7 @@ export default class extends mainViewClass {
             <h1>Freeschema Frontend</h1>
           </div>
           <div class="header-link">
-            <p>View <a href="https://github.com/Mentor-Friends/FreeschemaFrontendDocs" target="_blank">documentation</a></p>
+            <p>View <a href="https://github.com/Mentor-Friends/Freeschema-Frontend" target="_blank">github</a> for more</p>
           </div>
         </div>
 
