@@ -28,7 +28,7 @@ export default class extends mainViewClass {
           <p class="heading-text">${headingText}</p>
           <!-- <button onclick="showAlert()">Show alert</button> -->
           <div class="btn-group">
-            <router-link href="/signup">Get Started</router-link>
+            <router-link href="/register">Get Started</router-link>
             <router-link href="/login">Login</router-link>
           </div>
         </main>
@@ -36,7 +36,7 @@ export default class extends mainViewClass {
         <div class="footer">
           <div>
             <h3><a href="https://github.com/Mentor-Friends/FreeschemaFrontendDocs" target="_blank">Freeschema Frontend
-                Focumentation</a></h3>
+                Documentation</a></h3>
             <p>Topics, references, and how-to's</p>
           </div>
           <div>
