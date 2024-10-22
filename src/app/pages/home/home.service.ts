@@ -1,8 +1,7 @@
-
 export async function getHeadingText() {
-  return 'This is a heading text.'
+  return "Freeschema Frontend is the Semantic Concept Connection System framework";
 }
 
 export async function showAlert() {
-  alert('This is an alert message!')
+  alert("This is an alert message!");
 }
