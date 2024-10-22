@@ -9,18 +9,21 @@ export class register extends StatefulWidget{
         let password = this.getElementById("password") as HTMLInputElement;
         let submitButton = this.getElementById("submit");
         console.log("this is the submit button eventeer", submitButton);
-        submitButton.onclick = (ev: Event) => {
-            ev.preventDefault();
-            let signupData: SignupModel = {
-                email: email.value,
-                password: password.value
+        if(submitButton){
+            submitButton.onclick = (ev: Event) => {
+                ev.preventDefault();
+                let signupData: SignupModel = {
+                    email: email.value,
+                    password: password.value
+                }
+                console.log("this is the login clicked");
+                Signup(signupData).then((output: any)=>{
+                    console.log("This is signup complete", output);
+                })
+                
             }
-            console.log("this is the login clicked");
-            Signup(signupData).then((output: any)=>{
-                console.log("This is signup complete", output);
-            })
-            
         }
+
     }
 
     /**

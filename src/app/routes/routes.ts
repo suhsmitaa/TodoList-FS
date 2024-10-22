@@ -1,5 +1,6 @@
 import { create } from "../pages/example/create.example.ts";
 import { list } from "../pages/example/list.example.ts";
+import { phonebook } from "../pages/example/wrapper.example.ts";
 import homeIndex from "../pages/home/home.index.ts";
 import { login } from "../pages/user/login.example.ts";
 import { register } from "../pages/user/register.example.ts";
@@ -43,6 +44,12 @@ const routes: RouteParams[] = [
     path: "/example",
     linkLabel: "Example",
     content: create,
+    isAuthenticated: true
+  },
+  {
+    path: "/phonebook",
+    linkLabel: "Phonebook",
+    content: phonebook,
     isAuthenticated: true
   },
   {

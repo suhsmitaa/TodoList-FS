@@ -25,9 +25,10 @@ export class BaseWidget extends BaseObserver{
            let myelement =  <HTMLElement>element.querySelector('#'+identifier);
            if(myelement){
             selectedElement = myelement;
+            return selectedElement;
            }
         }
-        return selectedElement;
+        return null;
   
       }
 

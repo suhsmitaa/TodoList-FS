@@ -1,6 +1,6 @@
-import { CreateTheCompositionLocal, CreateTheConnectionLocal, LocalSyncData, MakeTheInstanceConceptLocal } from "mftsccs-browser";
+import { CreateTheConnectionLocal, LocalSyncData, MakeTheInstanceConceptLocal, PatcherStructure, UpdateComposition } from "mftsccs-browser";
 import { StatefulWidget } from "../../default/StatefulWidget";
-
+import  './phonebook.style.css';
 export class create extends StatefulWidget{
 
 
@@ -18,29 +18,38 @@ export class create extends StatefulWidget{
             id.value = this.data.id;
         }
         let submitButton = this.getElementById("submit");
-        console.log("this is the submit button eventeer", submitButton);
-        submitButton.onclick = (ev: Event) => {
-            ev.preventDefault();
-            console.log("This is the data clicked", ev, name.value, phone.value);
-
-
-           MakeTheInstanceConceptLocal("the_phonebook", "", true,999,4).then((mainconcept)=> {
-                console.log("this is for the sync", mainconcept);
-                MakeTheInstanceConceptLocal("name", name.value,false, 10267, 4).then((concept)=>{
-                    MakeTheInstanceConceptLocal("phone", phone.value, false, 999,4).then((concept2) => {
-                        CreateTheConnectionLocal(mainconcept.id, concept.id, mainconcept.id, 1, "", 999).then(()=>{
-                            CreateTheConnectionLocal(mainconcept.id, concept2.id, mainconcept.id, 1, "", 999).then(()=>{
-                                LocalSyncData.SyncDataOnline();
-                            })
-                        })
+        if(submitButton){
+            submitButton.onclick = (ev: Event) => {
+                ev.preventDefault();
+    
+                if(id.value){
+                    let patcherStructure: PatcherStructure = new PatcherStructure();
+                    patcherStructure.compositionId = Number(id.value);
+                    patcherStructure.patchObject = {
+                        "name": name.value,
+                        "phone": phone.value
+                    }
+                    UpdateComposition(patcherStructure);
+                }
+                else{
+                    MakeTheInstanceConceptLocal("the_phonebook", "", true,999,4).then((mainconcept)=> {
+                        MakeTheInstanceConceptLocal("name", name.value,false, 10267, 4).then((concept)=>{
+                            MakeTheInstanceConceptLocal("phone", phone.value, false, 999,4).then((concept2) => {
+                                CreateTheConnectionLocal(mainconcept.id, concept.id, mainconcept.id, 1, "", 999).then(()=>{
+                                    CreateTheConnectionLocal(mainconcept.id, concept2.id, mainconcept.id, 1, "", 999).then(()=>{
+                                        LocalSyncData.SyncDataOnline();
+                                    })
+                                })
+                            });
+                        });
                     });
-                });
-            }).catch((err)=>{
-                console.error("this is the error", err);
-            })
-
-            
+                }
+    
+    
+                console.log("submit button clicked");
+            }
         }
+
     }
 
 
@@ -54,13 +63,19 @@ export class create extends StatefulWidget{
      */
      getHtml(): string {
         let html = "";
-        html = `<div>
+        html = `<div class="container">
         <form>
             <div>
                 <input type= number id=id hidden>
-                <input type = text id="name" placeholder="name">
-                <input type = number id="phone" placeholder="phone">
-                <button id="submit" type=submit>Submit</button>
+                <div class="formbody">
+                    <label> name </label>
+                    <input  type = text id="name" placeholder="name">
+                </div>
+                <div class="formbody">
+                    <label> number </label>
+                    <input   type = number id="phone" placeholder="phone">
+                </div>
+                <button class=" btn btn-primary" id="submit" type=submit>Submit</button>
             </div>
         </form>
 
