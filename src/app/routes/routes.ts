@@ -3,6 +3,7 @@ import { list } from "../pages/example/list.example.ts";
 import { phonebook } from "../pages/example/wrapper.example.ts";
 import homeIndex from "../pages/home/home.index.ts";
 import { login } from "../pages/user/login.example.ts";
+import { logout } from "../pages/user/logout.example.ts";
 import { register } from "../pages/user/register.example.ts";
 
 type RouteParams = {
@@ -36,9 +37,14 @@ const routes: RouteParams[] = [
     content: login,
   },
   {
-    path: "/signup",
+    path: "/register",
     linkLabel: "Signup",
     content: register,
+  },
+  {
+    path: "/logout",
+    linkLabel: "Signup",
+    content: logout,
   },
   {
     path: "/example",

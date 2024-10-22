@@ -1,11 +1,11 @@
+// src/app/pages/user/login.example.ts
+
 import { LoginToBackend } from "mftsccs-browser";
 import { StatefulWidget } from "../../default/StatefulWidget";
 import { saveTolocalStorage } from "./login.service";
+import { updateContent } from "../../routes/renderRoute.service";
 
 export class login extends StatefulWidget{
-
-
-
 
     /**
      * These are the events that user adds. These could be any thing like populating the data to creating the data
@@ -22,9 +22,14 @@ export class login extends StatefulWidget{
         
                     console.log("this is the login clicked");
                     LoginToBackend(email.value, password.value).then((output: any)=>{
-                        console.log("This is the value", output);
                         saveTolocalStorage(output);
-                    })
+                        updateContent('/');
+                    }).catch((err)=>{
+                        let error = this.getElementById("error");
+                        if(error){
+                            error.innerHTML = err.message;
+                        }
+                    });
                     
                 }
             }
@@ -37,12 +42,19 @@ export class login extends StatefulWidget{
      */
         getHtml(): string {
             let html = "";
-            html = `<div>
+            html = `<div class="container">
             <form>
                 <div>
+                <div class="formbody">
+                    <label>Email: </label>
                     <input type = text id="email" placeholder="email">
+                </div>
+                <div class="formbody">
+                    <label>Password: </label>
                     <input type = password id="password" placeholder="password">
-                    <button id="submit">Submit</button>
+                </div>
+                    <button class="btn btn-primary" id="submit">Submit</button>
+                    <div style="color: red" id="error"></div>
                 </div>
             </form>
     

@@ -1,3 +1,5 @@
+// src/app/pages/example/create.example.ts
+
 import { CreateTheConnectionLocal, LocalSyncData, MakeTheInstanceConceptLocal, PatcherStructure, UpdateComposition } from "mftsccs-browser";
 import { StatefulWidget } from "../../default/StatefulWidget";
 import  './phonebook.style.css';
