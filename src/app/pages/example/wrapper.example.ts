@@ -1,3 +1,5 @@
+// src/app/pages/example/wrapper.example.ts
+
 import { StatefulWidget } from "../../default/StatefulWidget";
 import { create } from "./create.example";
 import { list } from "./list.example";

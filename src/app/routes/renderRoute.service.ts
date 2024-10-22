@@ -77,7 +77,7 @@ export async function checkRouting() {
    * if the route is of type StatefulWidget then mount the application to the dom.
    */
   if(Object.getPrototypeOf(view.constructor).name  == "StatefulWidget"){
-    console.log("this is the widget");
+    app.innerHTML = "";
     await view?.mount(app);
   }
   else{
