@@ -1,6 +1,6 @@
 {
   "name": "freeschema-frontend",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -13,6 +13,18 @@
     "vite": "^5.3.1"
   },
   "dependencies": {
-    "mftsccs-browser": "^100.1.31"
-  }
+    "mftsccs-browser": "^100.1.32"
+  },
+  "description": "This is a data fabric project that unifies frontend and backend",
+  "main": "src/main.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mentor-Friends/Freeschema-Frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mentor-Friends/Freeschema-Frontend/issues"
+  },
+  "homepage": "https://github.com/Mentor-Friends/Freeschema-Frontend#readme"
 }

@@ -1,8 +1,9 @@
 // src/app/pages/example/create.example.ts
 
-import { CreateTheConnectionLocal, LocalSyncData, MakeTheInstanceConceptLocal, PatcherStructure, UpdateComposition } from "mftsccs-browser";
+import { CreateTheConnectionLocal, LocalSyncData, MakeTheInstanceConceptLocal, PatcherStructure, PRIVATE, UpdateComposition } from "mftsccs-browser";
 import { StatefulWidget } from "../../default/StatefulWidget";
 import  './phonebook.style.css';
+import { getLocalUserId } from "../user/login.service";
 export class create extends StatefulWidget{
 
 
@@ -11,6 +12,8 @@ export class create extends StatefulWidget{
      * 
      */
     addEvents(): void {
+        let userId:number = getLocalUserId();
+        let order: 1;
         let name = this.getElementById("name") as HTMLInputElement;
         let phone = this.getElementById("phone") as HTMLInputElement;
         let id = this.getElementById("id") as HTMLInputElement;
@@ -34,11 +37,11 @@ export class create extends StatefulWidget{
                     UpdateComposition(patcherStructure);
                 }
                 else{
-                    MakeTheInstanceConceptLocal("the_phonebook", "", true,999,4).then((mainconcept)=> {
-                        MakeTheInstanceConceptLocal("name", name.value,false, 10267, 4).then((concept)=>{
-                            MakeTheInstanceConceptLocal("phone", phone.value, false, 999,4).then((concept2) => {
-                                CreateTheConnectionLocal(mainconcept.id, concept.id, mainconcept.id, 1, "", 999).then(()=>{
-                                    CreateTheConnectionLocal(mainconcept.id, concept2.id, mainconcept.id, 1, "", 999).then(()=>{
+                    MakeTheInstanceConceptLocal("the_phonebook", "", true,userId,PRIVATE).then((mainconcept)=> {
+                        MakeTheInstanceConceptLocal("name", name.value,false, userId, PRIVATE).then((concept)=>{
+                            MakeTheInstanceConceptLocal("phone", phone.value, false, userId,PRIVATE).then((concept2) => {
+                                CreateTheConnectionLocal(mainconcept.id, concept.id, mainconcept.id, order, "", userId).then(()=>{
+                                    CreateTheConnectionLocal(mainconcept.id, concept2.id, mainconcept.id, order, "", userId).then(()=>{
                                         LocalSyncData.SyncDataOnline();
                                     })
                                 })
