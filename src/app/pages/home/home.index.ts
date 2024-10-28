@@ -55,6 +55,7 @@ export default class extends mainViewClass {
             <h3><router-link href="/phonebook">Example: Phonebook App</router-link></h3>
             <p>Get Started with Freeschema Frontend</p>
           </div>
+          
           <div>
             <h3><a href="https://github.com/Mentor-Friends/FreeschemaFrontendDocs/issues" target="_blank">Freeschema Frontend Community</a></h3>
             <p>Connect get help, or contribute</p>

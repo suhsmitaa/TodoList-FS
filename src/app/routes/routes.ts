@@ -6,23 +6,12 @@ import noPageFoundIndex from "../pages/noPageFound/noPageFound.index.ts";
 import { login } from "../pages/user/login.example.ts";
 import { logout } from "../pages/user/logout.example.ts";
 import { register } from "../pages/user/register.example.ts";
+import { todoList } from "../pages/todolist/wrapper.todo.ts"; // Importing the new TodoList component
 
 type RouteParams = {
-  /**
-   * This is a path for route url
-   */
   path: any;
-  /**
-   * This is a label for the route as a name
-   */
   linkLabel?: string;
-  /**
-   * This is the content that route renders
-   */
   content: any;
-  /**
-   * If path needs to be authenticated. ie. true, false
-   */
   isAuthenticated?: boolean;
 };
 
@@ -44,26 +33,32 @@ const routes: RouteParams[] = [
   },
   {
     path: "/logout",
-    linkLabel: "Signup",
+    linkLabel: "Logout",
     content: logout,
   },
   {
     path: "/example",
     linkLabel: "Example",
     content: create,
-    isAuthenticated: true
+    isAuthenticated: true,
   },
   {
     path: "/phonebook",
     linkLabel: "Phonebook",
     content: phonebook,
-    isAuthenticated: true
+    isAuthenticated: true,
   },
   {
     path: "/example-list",
-    linkLabel: "Example",
+    linkLabel: "Example List",
     content: list,
-    isAuthenticated: true
+    isAuthenticated: true,
+  },
+  {
+    path: "/todoList",
+    linkLabel: "Todo List",
+    content: todoList, // Adding the Todo List route
+    isAuthenticated: true,
   },
   {
     path: "/404",
