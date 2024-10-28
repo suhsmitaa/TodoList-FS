@@ -9,3 +9,5 @@ npm run dev
 
 //now run todoList (for create,list,edit,delete)
 run http://localhost:5173/todoList
+
+<img width="1333" alt="image" src="https://github.com/user-attachments/assets/acbad16c-b9af-40c9-99a1-ae85dcb9fe34">
